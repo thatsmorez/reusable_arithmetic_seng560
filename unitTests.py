@@ -70,25 +70,25 @@ class test_reusable_arithmetic_library(unittest.TestCase):
 		self.assertEqual(None, reusable_arithmetic.exponent(2.0, False))			
 	
 	def test_convert2Octal(self):
-		self.assertEqual('0o11', reusable_arithmetic,convert2Octal(9))
-		self.assertEqual('0o17', reusable_arithmetic. convert2Octal('0xF'))
-		selt.assertEqual('0o17', reusable_arithmetic.convert2Octal('0b1111'))
+		self.assertEqual('011', reusable_arithmetic.convert2Octal(9))
+		self.assertEqual('017', reusable_arithmetic. convert2Octal(0xf))
+		self.assertEqual('017', reusable_arithmetic.convert2Octal(0b1111))
 	
 	def test_convert2Hex(self):
-		self.assertEqual(0xf, reusable_arithmetic.convert2Hex(15))
-		self.assertEqual(0xf, reusable_arithmetic.convert2Hex('0o17'))
-		self.assertEqual(0xf, reusable_arithmetic.convert2Hex('0b1111'))
+		self.assertEqual('0xf', reusable_arithmetic.convert2Hex(15))
+		self.assertEqual('0xf', reusable_arithmetic.convert2Hex(0o17))
+		self.assertEqual('0xf', reusable_arithmetic.convert2Hex(0b1111))
 	
 	def test_convert2Integer(self):
 		self.assertEqual(1, reusable_arithmetic.convert2Integer(1.0))
-		self.assertEqual(15, reusable_arithmetic.convert2Integer(0xF))
-		self.assertEqual(3, reusable_arithmetic.convert2Integer('0b11'))
-		self.assertEqual(9, reusable_arithmetic.convert2Integer('0o11'))
+		self.assertEqual(15, reusable_arithmetic.convert2Integer(0xf))
+		self.assertEqual(3, reusable_arithmetic.convert2Integer(0b11))  #Error Here
+		self.assertEqual(9, reusable_arithmetic.convert2Integer(0o11))
 	
 	def test_convert2Binary(self):
 		self.assertEqual('0b11', reusable_arithmetic.convert2Binary(3))
-		self.assertEqual('0b1111', reusable_arithmetic.convert2Binary(0xF))
-		self.assertEqual('0b1111', reusable_arithmetic.convert2Binary('0o17'))
+		self.assertEqual('0b1111', reusable_arithmetic.convert2Binary(0xf))
+		self.assertEqual('0b1111', reusable_arithmetic.convert2Binary(0o17))  # Error Here
 		
 if __name__ == '__main__':
 	unittest.main()
